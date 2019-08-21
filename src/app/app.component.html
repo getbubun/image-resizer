@@ -1,57 +1,58 @@
+<nav class="navbar navbar-expand-sm navbar-dark text-white bg-primary">
+  <a class="navbar-brand mx-auto">Image Resizer</a>
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <a class="navbar-brand mx-auto" >Image Resizer</a>
-   
 </nav>
 <div class="container">
   <div class="row p-5">
     <div class="col-lg-8 ">
-        <div class="form-group form-label-group">
-           
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image" placeholder="Enter a valid Image URL" >
-            
-        </div>
-    </div>
-    <div class="col-lg-4 ">
-      <button type="button" name="" id="" class="btn btn-success" >Validate !</button>
-    </div>
-  </div>
-</div>
-<div class="container img-container mx-auto d-block">
-    <img src="..." class="img-fluid " alt=" image">
-</div>
-<div class="container edit ">
-    <h4>Dimensions</h4> <hr>
-  <div class="row">
-    <div class="col-lg-4">
-        <div class="form-group ">
-            <label for="">Width</label>
-            <input type="number">
-        </div>
+      <div class="form-group form-label-group">
 
-    </div>
-    <div class="col-lg-4">
-        <div class="form-group ">
-            <label for="">Length</label>
-            <input type="number">
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="form-group" >
-            <label for="">Type</label>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">Crop</option>
-            <option value="2">Resize</option>
-          </select>
-        </div>
-    </div>
-      
-       
-        
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image"
+          placeholder="Enter a valid Image URL" [(ngModel)]="imgUrl">
 
       </div>
     </div>
-  
+    <div class="col-lg-4 ">
+      <button type="button" name="" id="" class="btn btn-success" (click)="imageValidation()">Validate !</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="isValidUrl" class="container image mx-auto d-block">
+  <img [src]="imgUrl" class="img-fluid " alt=" image">
+</div>
+<div *ngIf="isValidUrl" class="container edit ">
+  <h4>Dimensions</h4>
+  <hr>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group ">
+        <label for="">Width</label>
+        <input type="number" >
+      </div>
+
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group ">
+        <label for="">Length</label>
+        <input type="number" >
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+        <label for="">Type</label>
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">Crop</option>
+          <option value="2">Resize</option>
+        </select>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
 
 <router-outlet></router-outlet>
